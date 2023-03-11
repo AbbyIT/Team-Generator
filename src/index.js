@@ -1,34 +1,94 @@
-const Manager = require("./lib/Manager");
-const Engineer = require("./lib/Engineer");
-const Intern = require("./lib/Intern");
+const Manager = require("../lib/Manager");
+const Engineer = require("../lib/Engineer");
+const Intern = require("../lib/Intern")
 const inquirer = require("inquirer");
 const path = require("path");
-const fs = require("fs");
+const fs = require("fs/promises");
 
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
-const render = require("./src/page-template.js");
+const render = require("./page-template");
 const Employee = require("../lib/Employee");
 
 
-// TODO: Write Code to gather information about the development team members, and render the HTML file.
 
-let team = [];
+// const manager1 = new Manager (data.name, data.id, data.email, data.officeNumber);
 
-// example - push to array everytime you are done adding members to the team e.g add engnr, add mgr, add intern 
+// )};
 
-// call render once they are sone filling out information
-// ensure you are pussing to team
-// use fs.write file
+// team.push(manager1);
 
-// when render is called you will receive html document which you will then write to file
+    const team = []
+    async function addManager (){
 
-StartProgram()
-async function StartProgram() {
-    team.push(new Employee ("Andrew",1, "test@test.com"))
+    let data = await inquirer.prompt([
+
+
+])
+    // const manager1 = new Manager (data.name, data.id, data.email, data.officeNumber);
+
+    // {
+    //     type:'input',
+    //     name:'name',
+    //     message: "What is your name?"
+
+    //   },
+
+    userPrompt ()
+
+
+
+
+
+                // function addEngineer(){
+
+
+                // };
+
+
+                // function addIntern(){
+
+
+                // };
+
+                // function userPrompt(){
+                // // enquirer function goes here - that gives options
+
+                // };
+
+        const { name, id, email, officeNumber} = await inquirer
+        .prompt([
+
+        {
+          type:'input',
+          name:'name',
+          message: "What is your name?"
+
+        },
+
+        {
+        type:'input',
+        name:'id',
+       message: "What is your ID number?"
+,
+        },
+        
+       
+        {
+        type:'input',
+        name:'email',
+        message: 'What is your Email address?'
+        },
+
+        {
+        type:'input',
+        name:'OfficeNumber',
+        message: 'What is your Office Number?'
+        }
+
+
+
+    )]};
     
-    let htmlDoc = render(team)
-
-
-}
+    await fs.writeFile('ManagerOutput.html', data);
